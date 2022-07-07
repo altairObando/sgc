@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const { Schema, model, models } = mongoose;
+const { Schema, model } = mongoose;
 
 const contactSchema = new Schema({
     DNI: { 
@@ -27,13 +27,13 @@ const contactSchema = new Schema({
         type: Date,
         required: false
     },
-    Nationality: Schema.Types.ObjectId,
+    Nationality: String,
     CivilStatus: String,
     Tags: [String],
     Roles: [String]
 })
 
 
-const Contact = models.Contact || model('Contact', contactSchema);
+const Contact = mongoose.models.Contact || model('Contact', contactSchema);
 
 module.exports = Contact

@@ -9,21 +9,25 @@ const ViewPort = ({ children }) => {
   const [childMargin, setChildMargin ] = React.useState('15em')
   // Update child margin
   React.useEffect(() =>{
-    let margin = collapsed ? '2em' : '13em';
+    let margin = collapsed ? '3em' : '13em';
     setChildMargin(margin);
   }, [collapsed] )
 
+  const styles = {
+    contentStyle : { marginLeft: childMargin , marginTop:'5.5em', padding:'0 2rem', backgroundColor: 'white'}
+  }
+
+
   return <>
-  <Layout>
+  <Layout className='site-layout' style={{ height: '65em' }}>
       <CustomHeader />
-      <Layout>
+      <Layout style={{ backgroundColor: 'white'}}>
         <CustomSider collapsed={collapsed} setCollapsed={setCollapsed} />
-        <Layout style={{ marginLeft: childMargin , marginTop:'5.5em', padding:'0 2rem'}}>
+        <Layout style={ styles.contentStyle }>
           { children}
         </Layout>
       </Layout>
   </Layout>
   </>
 }
-
 export default ViewPort

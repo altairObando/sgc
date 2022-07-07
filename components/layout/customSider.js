@@ -2,6 +2,14 @@ import { Layout, Menu } from 'antd'
 import React from 'react'
 const { Sider } = Layout;
 import { UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
+import Link from 'next/link';
+
+const menuItems = [
+  { icon: <UserOutlined />, key: 'nav-1', label: <Link href='/Contacts'><a> Contacts</a></Link>},
+  { icon: <VideoCameraOutlined/>, key: 'nav-2', label: 'Undefined'},
+  { icon: <UploadOutlined/>, key: 'nav-3', label: 'Undefined'},
+]
+
 
 const CustomSider = ({collapsed, setCollapsed}) => {
   
@@ -11,7 +19,8 @@ const CustomSider = ({collapsed, setCollapsed}) => {
     collapsible
     collapsed={ collapsed }
     onCollapse={( value ) => setCollapsed(value) }
-    // trigger={null} TODO:// add separeted sidebar for each component menu
+    //TODO: add separeted sidebar for each component menu
+    // trigger={null} 
     style={{
         height: '100vh',
         position: 'fixed',
@@ -20,16 +29,11 @@ const CustomSider = ({collapsed, setCollapsed}) => {
         bottom: 0
     }}>
         <Menu 
-          theme='dark' //TODO: Update theme colors
+          //TODO: Update theme colors
+          theme='dark'
           mode='inline'
-          defaultSelectedKeys={['1']}
-          items={[UserOutlined, VideoCameraOutlined, UploadOutlined, UserOutlined].map(
-            (icon, index) => ({
-              key: String(index + 1),
-              icon: React.createElement(icon),
-              label: `nav ${index + 1}`,
-            }),
-          )}/>
+          defaultSelectedKeys={['nav-1']}
+          items={ menuItems }/>
     </Sider>
 }
 
