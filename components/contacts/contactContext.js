@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-export const Context = React.createContext({});
+export const Context = React.createContext({ initialValues: { Nationality: '', Tags: '' }});
 export const ContextProvider = Context.Provider;
 
 const ContactContext = ({ children }) => {

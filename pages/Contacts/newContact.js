@@ -4,7 +4,7 @@ import ContactForm from '../../components/contacts/ContactForm'
 
 
 
-const NewContact = ({ initialValues = undefined}) => {
+const NewContact = ({ initialValues }) => {
   return <>
   <ContactContext>      
       <ContactForm initialValues={ initialValues }/>
