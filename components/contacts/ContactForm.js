@@ -7,7 +7,7 @@ import { Context } from './contactContext';
 const { TabPane } = Tabs;
 
 
-const ContactForm = ({initialValues}) => {
+const ContactForm = ({ initialValues }) => {
   
   const [ context, updateContext ] = React.useContext(Context);
 

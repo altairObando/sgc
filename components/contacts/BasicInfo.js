@@ -30,8 +30,6 @@ const BasicInfo = () => {
         form.setFieldsValue(newValue)
     }
 
-    const { initialValues: { Nationality = '', Tags = [] }} = context;
-
     const civilOptions = civilStatuses.map((d) => <Option key={d.id}>{d.name}</Option>);
 
   return <Form 
@@ -81,10 +79,10 @@ const BasicInfo = () => {
                 </Select>
             </FormInput>
             <FormInput label='Nationality' name='Nationality'>
-                <CountriesSelect placeholder= 'Select a Country' handleCustomChange={ (value) => handleCustomChange('Nationality', value ) } defaultValue={ Nationality } />
+                <CountriesSelect placeholder= 'Select a Country' handleCustomChange={ (value) => handleCustomChange('Nationality', value ) } defaultValue={ context?.initialValues?.Nationality ?? '' } />
             </FormInput>
             <FormInput label='Tags' name='Tags' >
-                <TagSelect handleCustomChange={ (value) => handleCustomChange('Tags', value) } defaultValue={ Tags || [] }/>
+                <TagSelect handleCustomChange={ (value) => handleCustomChange('Tags', value) } defaultValue={ context?.initialValues?.Tags ?? [] }/>
             </FormInput>
           </Col>
       </Row>
