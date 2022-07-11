@@ -38,7 +38,7 @@ const BasicInfo = () => {
         layout='vertical' 
         initialValues={{ 
             Birthday: moment('2015/01/01', dateFormat),
-            Gender: 'F'
+            Gender: 'F',
             }}>
       <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
           <Col xs={20} sm={16} md={12} lg={8} xl={8}>
@@ -79,10 +79,10 @@ const BasicInfo = () => {
                 </Select>
             </FormInput>
             <FormInput label='Nationality' name='Nationality'>
-                <CountriesSelect placeholder= 'Select a Country' handleCustomChange={ (value) => handleCustomChange('Nationality', value ) } defaultValue={ context?.initialValues?.Nationality ?? '' } />
+                <CountriesSelect placeholder= 'Select a Country' handleCustomChange={ (value) => handleCustomChange('Nationality', value ) } customValue={ context?.initialValues?.Nationality ?? '' } />
             </FormInput>
             <FormInput label='Tags' name='Tags' >
-                <TagSelect handleCustomChange={ (value) => handleCustomChange('Tags', value) } defaultValue={ context?.initialValues?.Tags ?? [] }/>
+                <TagSelect handleCustomChange={ (value) => handleCustomChange('Tags', value) } customValue={ context?.initialValues?.Tags ?? [] }/>
             </FormInput>
           </Col>
       </Row>

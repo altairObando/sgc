@@ -42,9 +42,9 @@ const CountriesSelect = (props) => {
     }
 
     React.useEffect( () => {
-        _handleSearch(props.defaultValue);
-        setValue(props.defaultValue);
-    }, [ props.defaultValue ])
+        _handleSearch(props.customValue);
+        setValue(props.customValue);
+    }, [ props.customValue ])
 
     const options = data.map((d) => <Option key={d.value}>{d.text}</Option>);
 

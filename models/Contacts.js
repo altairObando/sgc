@@ -30,10 +30,16 @@ const contactSchema = new Schema({
     Nationality: String,
     CivilStatus: String,
     Tags: [String],
-    Roles: [String]
+    Roles: [String],
+    Address: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'ContactAddress'
+        }
+    ]
 })
 
 
 const Contact = mongoose.models.Contact || model('Contact', contactSchema);
-
+//db.Contact.findById(id).populate("ContactAddress");
 module.exports = Contact

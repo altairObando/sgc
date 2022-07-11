@@ -28,7 +28,7 @@ const renderActions = (text, record) => {
     const uri = `/Contacts/${ record._id }`;
     return <Space>
         <Link href={uri} >
-            <a data-contactId={text}> See Details</a>
+            <a> See Details</a>
         </Link>
     </Space>
 }
