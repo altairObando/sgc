@@ -12,7 +12,8 @@ export abstract class BaseRepository<T> implements IBaseService<T>{
         try {
             const result = await this._model.create(item);
             return result.isNew;
-        } catch {
+        } catch(error) {
+            console.log(error)
             return false;
         }
     }

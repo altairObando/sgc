@@ -6,34 +6,35 @@ var mongooseConnection = DataAccess.mongooseConection;
 
 
 const contactSchema: Schema = new Schema({
-    dni: { 
+    DNI: { 
         type: String, 
         required: true
     },
-    firstName: {
+    FirstName: {
         type: String,
         required: true
     },
-    middleName: {
+    MiddleName: {
         type: String,
         required: false
     },
-    surname1:{
+    Surname1:{
         type: String,
         required: true
     },
-    surname2: {
+    Surname2: {
         type: String,
         required: false
     },
-    birthday: {
+    Birthday: {
         type: Date,
         required: false
     },
-    nationality: String,
-    civilStatus: String,
-    tags: [String],
-    roles: [String],
+    Nationality: String,
+    CivilStatus: String,
+    Tags: [String],
+    Roles: [String],
+    Gender: String,
     // Address: [
     //     {
     //         type: Schema.Types.ObjectId,

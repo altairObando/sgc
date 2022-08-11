@@ -15,12 +15,16 @@ export class ContactoController implements IBaseController<ContactoService>{
     }
 
     create (req : express.Request, res : express.Response ): void { 
-        var contacto: IContacto = <IContacto>req.body;
-        var service = new ContactoService();
-        service.create(contacto)
-            .then(saved => {
-                res.json({success: saved, data: contacto })
-            })
+        try {
+            var contacto: IContacto = <IContacto>req.body;
+            var service = new ContactoService();
+            service.create(contacto)
+                .then(saved => {
+                    res.json({success: saved, data: contacto })
+                })
+        } catch (error) {
+            console.log("Error: ", error);
+        }
     }
     update(req: express.Request, res: express.Response): void {
         var contacto: IContacto = <IContacto>req.body;

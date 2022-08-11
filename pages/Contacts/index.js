@@ -35,9 +35,14 @@ const Index = ({ data }) => {
 }
 
 export async function getServerSideProps(_) {
-  const response = await fetch(`${server}/api/contacts`);
-    const data = await response.json();
-    return { props: { data: data.contacts } }
+  const response = await fetch(`${server}/api/Contactos`);
+  try {
+      const data = await response.json();
+      return { props: { data: data } }
+  } catch (error) {
+    console.log(response);
+    return { props: { data: [] }}
+  }
 }
 
 export default Index

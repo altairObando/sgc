@@ -5,7 +5,7 @@ var app = express();
 
 class Routes{
     get routes(){
-        app.use("/Contactos", Contacto)
+        app.use("/api/Contactos", Contacto)
         return app;
     }
 }

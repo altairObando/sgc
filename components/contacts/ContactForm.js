@@ -4,6 +4,8 @@ import { AccountBookOutlined, ApartmentOutlined, RestOutlined, SaveOutlined } fr
 import CustomPageHeader from '../../components/util/CustomPageHeader'
 import BasicInfo from './BasicInfo';
 import { Context } from './contactContext';
+import { server } from '../../util/server';
+import { SaveEntity, UpdateEntity } from '../../util/request';
 const { TabPane } = Tabs;
 
 
@@ -18,11 +20,10 @@ const ContactForm = ({ initialValues }) => {
       throw 'No form reference defined'
     }    
     const values = frm.getFieldsValue();
-    const { _id : id } = initialValues;
+    const { _id : id } = initialValues || {};
     try {
       values['id'] = id;
-      const request  = await fetch( '/api/contacts/add', { method: 'POST', body: JSON.stringify(values), headers: { 'Content-Type': 'application/json'} });
-      const response = await request.json();
+      const response = id && id != null ? await UpdateEntity('Contactos/', values, id) : await SaveEntity('Contactos/', values);
       if(response.success)
         message.success('Action Completed')
     } catch (error) {
